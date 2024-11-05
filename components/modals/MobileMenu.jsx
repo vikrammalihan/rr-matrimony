@@ -1,16 +1,21 @@
-"use client";
-import React from "react";
-import Link from "next/link";
+"use client"; // Enable the full API
+import React from "react"; // Import the required dependencies
+import Link from "next/link"; 
 import LanguageSelect from "../common/LanguageSelect";
 import CurrencySelect from "../common/CurrencySelect";
-import { navItems } from "@/data/menu";
+
+import { navItems } from "@/data/menu"; // Import the menu data
 import { usePathname } from "next/navigation";
+
+// Mobile menu for mobile
 export default function MobileMenu() {
-  const pathname = usePathname();
+
+  const pathname = usePathname(); // Get the current pathname
+  
   const isMenuActive = (menuItem) => {
     let active = false;
     if (menuItem.href?.includes("/")) {
-      if (menuItem.href?.split("/")[1] == pathname.split("/")[1]) {
+      if (menuItem.href?.split("/")[1] == pathname.split("/")[1]) { // Check if the current pathname matches the menu item
         active = true;
       }
     }
@@ -33,6 +38,8 @@ export default function MobileMenu() {
 
     return active;
   };
+
+
   return (
     <div className="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
       <span
@@ -40,9 +47,11 @@ export default function MobileMenu() {
         data-bs-dismiss="offcanvas"
         aria-label="Close"
       />
+
       <div className="mb-canvas-content">
         <div className="mb-body">
           <ul className="nav-ul-mb" id="wrapper-menu-navigation">
+
             {navItems.map((item, i) => (
               <li key={i} className="nav-mb-item">
                 <a
@@ -120,16 +129,20 @@ export default function MobileMenu() {
                 </div>
               </li>
             ))}
+
             <li className="nav-mb-item">
               <a
-                href="https://themeforest.net/item/ecomus-ultimate-html5-template/53417990?s_rank=3"
+                href="#"
                 className="mb-menu-link"
               >
                 Buy now
               </a>
             </li>
+
           </ul>
+
           <div className="mb-other-content">
+            
             <div className="d-flex group-icon">
               <Link href={`/wishlist`} className="site-nav-icon">
                 <i className="icon icon-heart" />
@@ -140,16 +153,19 @@ export default function MobileMenu() {
                 Search
               </Link>
             </div>
+
             <div className="mb-notice">
               <Link href={`/contact-1`} className="text-need">
                 Need help ?
               </Link>
             </div>
+            
             <ul className="mb-info">
               <li>
                 Address: 1234 Fashion Street, Suite 567, <br />
                 New York, NY 10001
               </li>
+            
               <li>
                 Email: <b>info@fashionshop.com</b>
               </li>
@@ -159,11 +175,13 @@ export default function MobileMenu() {
             </ul>
           </div>
         </div>
+
         <div className="mb-bottom">
           <Link href={`/login`} className="site-nav-icon">
             <i className="icon icon-account" />
             Login
           </Link>
+        
           <div className="bottom-bar-language">
             <div className="tf-currencies">
               <CurrencySelect />

@@ -5,6 +5,7 @@ import { openCartModal } from "@/utlis/openCartModal";
 import React, { useEffect } from "react";
 import { useContext, useState } from "react";
 const dataContext = React.createContext();
+
 export const useContextElement = () => {
   return useContext(dataContext);
 };
@@ -86,6 +87,7 @@ export default function Context({ children }) {
   useEffect(() => {
     localStorage.setItem("cartList", JSON.stringify(cartProducts));
   }, [cartProducts]);
+  
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("wishlist"));
     if (items?.length) {

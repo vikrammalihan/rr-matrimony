@@ -40,6 +40,7 @@
   }
 }
 
+// Mobile view
 @media (min-width: 768px) {
   .page-404-wrap {
     padding: 85px 0 64px;
@@ -240,6 +241,7 @@
       }
     }
   }
+
   .tf-timeline-item::before {
     position: absolute;
     content: "";
@@ -251,6 +253,7 @@
     border-radius: 50%;
     background-color: var(--primary);
   }
+  
   .tf-store-item {
     padding: 18px 17px 20px;
   }

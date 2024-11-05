@@ -59,42 +59,34 @@ export default function Topbar1() {
             >
               <SwiperSlide className="swiper-slide">
                 <p className="top-bar-text fw-5">
-                  Spring Fashion Sale{" "}
+                  World's #1 Website for Rawa Rajput {" "}
                   <Link
                     href={`/shop-default`}
                     title="all collection"
                     className="tf-btn btn-line"
                   >
-                    Shop now
+                    Matchmaking
                     <i className="icon icon-arrow1-top-left" />
                   </Link>
                 </p>
               </SwiperSlide>
+
               <SwiperSlide className="swiper-slide">
                 <p className="top-bar-text fw-5">
-                  Summer sale discount off 70%
+                  Registor Free and Find Your Perfect Match
                 </p>
               </SwiperSlide>
+              
               <SwiperSlide className="swiper-slide">
                 <p className="top-bar-text fw-5">
-                  Time to refresh your wardrobe.
+                  Join Now and Find Your Perfect Match
                 </p>
               </SwiperSlide>
+
             </Swiper>
           </div>
-          <div className="top-bar-language tf-cur justify-content-end">
-            <div className="tf-currencies">
-              <CurrencySelect topStart />
-            </div>
-            <div className="tf-languages">
-              <LanguageSelect
-                parentClassName={
-                  "image-select center style-default type-languages"
-                }
-                topStart
-              />
-            </div>
-          </div>
+
+          
         </div>
       </div>
     </div>

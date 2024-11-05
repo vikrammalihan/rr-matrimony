@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { allHomepages } from "@/data/menu";
 import { usePathname } from "next/navigation";
+
 export default function HomesModal() {
   const pathname = usePathname();
   return (

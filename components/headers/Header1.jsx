@@ -4,14 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import CartLength from "../common/CartLength";
 import WishlistLength from "../common/WishlistLength";
+
 export default function Header1() {
   return (
     <header id="header" className="header-default header-absolute">
       <div className="px_15 lg-px_40">
         <div className="row wrapper-header align-items-center">
+          
           <div className="col-md-4 col-3 tf-lg-hidden">
             <a
-              href="#mobileMenu"
+              href="#mobileMenu" // Open the mobile menu
               data-bs-toggle="offcanvas"
               aria-controls="offcanvasLeft"
             >
@@ -29,24 +31,27 @@ export default function Header1() {
               </svg>
             </a>
           </div>
+
           <div className="col-xl-3 col-md-4 col-6">
+
             <Link href={`/`} className="logo-header">
               <Image
                 alt="logo"
                 className="logo"
-                src="/images/logo/logo.svg"
+                src="/images/logo/rrm-logo.svg"
                 width="136"
                 height="21"
               />
             </Link>
           </div>
+
           <div className="col-xl-6 tf-md-hidden">
             <nav className="box-navigation text-center">
               <ul className="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                 <Nav />
                 <li className="menu-item">
                   <a
-                    href="https://themeforest.net/item/ecomus-ultimate-html5-template/53417990?s_rank=3"
+                    href="#"
                     className="item-link"
                   >
                     Buy now
@@ -55,6 +60,8 @@ export default function Header1() {
               </ul>
             </nav>
           </div>
+
+          
           <div className="col-xl-3 col-md-4 col-3">
             <ul className="nav-icon d-flex justify-content-end align-items-center gap-20">
               <li className="nav-search">
@@ -90,7 +97,7 @@ export default function Header1() {
                   data-bs-toggle="modal"
                   className="nav-icon-item"
                 >
-                  <i className="icon icon-bag" />
+                  <i className="icon icon-notify" />
                   <span className="count-box">
                     <CartLength />
                   </span>

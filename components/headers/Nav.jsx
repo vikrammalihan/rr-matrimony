@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { products1 } from "@/data/products";
 import { ProductCard } from "../shopCards/ProductCard";
 import { Navigation } from "swiper/modules";
+
 import {
   allHomepages,
   blogLinks,
@@ -15,24 +16,30 @@ import {
   productDetailPages,
   productsPages,
 } from "@/data/menu";
+
 import { usePathname } from "next/navigation";
 
 export default function Nav({ isArrow = true, textColor = "", Linkfs = "" }) {
+  
   const pathname = usePathname();
   const isMenuActive = (menuItem) => {
+  
     let active = false;
+  
     if (menuItem.href?.includes("/")) {
       if (menuItem.href?.split("/")[1] == pathname.split("/")[1]) {
         active = true;
       }
     }
-    if (menuItem.length) {
+    if (menuItem.length) { // if menuItem is an array
       active = menuItem.some(
         (elm) => elm.href?.split("/")[1] == pathname.split("/")[1]
       );
     }
-    if (menuItem.length) {
-      menuItem.forEach((item) => {
+
+    if (menuItem.length) { // if menuItem is an array
+      
+      menuItem.forEach((item) => { // loop through the array
         item.links?.forEach((elm2) => {
           if (elm2.href?.includes("/")) {
             if (elm2.href?.split("/")[1] == pathname.split("/")[1]) {
@@ -59,6 +66,7 @@ export default function Nav({ isArrow = true, textColor = "", Linkfs = "" }) {
 
     return active;
   };
+
   return (
     <>
       {" "}
@@ -217,6 +225,7 @@ export default function Nav({ isArrow = true, textColor = "", Linkfs = "" }) {
           </div>
         </div>
       </li>
+      
       <li className="menu-item">
         <a
           href="#"

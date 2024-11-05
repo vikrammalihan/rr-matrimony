@@ -109,11 +109,17 @@
   padding-top: 10%;
   height: 100%;
 }
+
+/* Mobile */
 @media only screen and (max-width: 767px) {
   .flat-spacing-flash-sell {
     padding-top: 70px;
     padding-bottom: 23px;
   }
+}
+
+.icon-user-group.added::before {
+  content: "\e901"; /* Unicode for bin/trash symbol */
 }
 .icon-heart.added::before {
   content: "\e917"; /* Unicode for bin/trash symbol */
@@ -166,6 +172,8 @@ html[dir="rtl"] {
   .banner-glass-content {
     text-align: start !important;
   }
+
+  /* Non Mobile */
   @media (min-width: 768px) {
     .text-md-start {
       text-align: start !important;

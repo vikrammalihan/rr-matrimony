@@ -1,10 +1,12 @@
-"use client";
+"use client";  // Enable the full API
 
 import { useEffect, useState } from "react";
 
 import "../public/scss/main.scss";
+import "../public/css/style.css";
 import "photoswipe/dist/photoswipe.css";
 import "rc-slider/assets/index.css";
+
 import HomesModal from "@/components/modals/HomesModal";
 import Context from "@/context/Context";
 import QuickView from "@/components/modals/QuickView";
@@ -18,11 +20,12 @@ import ColorCompare from "@/components/modals/ColorCompare";
 import DeliveryReturn from "@/components/modals/DeliveryReturn";
 import FindSize from "@/components/modals/FindSize";
 import Login from "@/components/modals/Login";
-import MobileMenu from "@/components/modals/MobileMenu";
+
+import MobileMenu from "@/components/modals/MobileMenu"; // Import the MobileMenu component 
 import Register from "@/components/modals/Register";
 import ResetPass from "@/components/modals/ResetPass";
 import SearchModal from "@/components/modals/SearchModal";
-import ToolbarBottom from "@/components/modals/ToolbarBottom";
+import ToolbarBottom from "@/components/modals/ToolbarBottom";  // Import the ToolbarBottom component
 import ToolbarShop from "@/components/modals/ToolbarShop";
 
 import { usePathname } from "next/navigation";
@@ -32,7 +35,9 @@ import ScrollTop from "@/components/common/ScrollTop";
 import RtlToggle from "@/components/common/RtlToggle";
 
 export default function RootLayout({ children }) {
+  
   const pathname = usePathname();
+  
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Import the script only on the client side
@@ -41,6 +46,8 @@ export default function RootLayout({ children }) {
       });
     }
   }, []);
+
+  // Add a class to the header when the user scrolls down
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector("header");
@@ -61,6 +68,7 @@ export default function RootLayout({ children }) {
 
   const [scrollDirection, setScrollDirection] = useState("down");
 
+  // Add a class to the header when the user scrolls up
   useEffect(() => {
     setScrollDirection("up");
     const handleScroll = () => {
@@ -92,6 +100,8 @@ export default function RootLayout({ children }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [pathname]);
+
+  // Close any open modal or offcanvas when the route changes
   useEffect(() => {
     // Close any open modal
     const bootstrap = require("bootstrap"); // dynamically import bootstrap
@@ -103,7 +113,7 @@ export default function RootLayout({ children }) {
       }
     });
 
-    // Close any open offcanvas
+    // Close any open offcanvas menu
     const offcanvasElements = document.querySelectorAll(".offcanvas.show");
     offcanvasElements.forEach((offcanvas) => {
       const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
@@ -113,6 +123,7 @@ export default function RootLayout({ children }) {
     });
   }, [pathname]); // Runs every time the route changes
 
+  // Hide the header on scroll down and show on scroll up
   useEffect(() => {
     const header = document.querySelector("header");
     if (header) {
@@ -123,15 +134,19 @@ export default function RootLayout({ children }) {
       }
     }
   }, [scrollDirection]);
+
+  // Initialize the WOW animation library
   useEffect(() => {
     const { WOW } = require("wowjs");
     const wow = new WOW({
-      mobile: false,
-      live: false,
+      mobile: false,  // Disable WOW on mobile devices
+      live: false, // Disable WOW on content loaded using AJAX
     });
     wow.init();
   }, [pathname]);
   const [showChild, setShowChild] = useState(false);
+
+  // Set the direction of the website
   useEffect(() => {
     if (localStorage.getItem("direction")) {
       // document.documentElement.dir = JSON.parse(
@@ -151,6 +166,8 @@ export default function RootLayout({ children }) {
       document.getElementById("preloader").classList.add("disabled");
     }, 800);
   });
+
+  
   return (
     <html lang="en">
       <body className="preload-wrapper">
@@ -163,7 +180,7 @@ export default function RootLayout({ children }) {
           {showChild ? (
             <>
               <div id="wrapper">{children}</div>
-              <RtlToggle />
+              {/* <RtlToggle /> */}
               <HomesModal /> <QuickView />
               <QuickAdd />
               <ProductSidebar />
@@ -181,7 +198,7 @@ export default function RootLayout({ children }) {
               <SearchModal />
               <ToolbarBottom />
               <ToolbarShop />
-              <NewsletterModal />
+              {/* <NewsletterModal /> */}
               <ShareModal />{" "}
             </>
           ) : (

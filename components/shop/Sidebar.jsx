@@ -6,6 +6,7 @@ import { galleryItems } from "@/data/gallery";
 import { categories } from "@/data/categories";
 import { socialLinks } from "@/data/socials";
 export default function Sidebar() {
+  
   return (
     <aside className="tf-shop-sidebar wrap-sidebar-mobile">
       <div className="widget-facet wd-categories">

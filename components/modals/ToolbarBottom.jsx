@@ -2,9 +2,29 @@ import React from "react";
 import Link from "next/link";
 import CartLength from "../common/CartLength";
 import WishlistLength from "../common/WishlistLength";
+
+// Bottom bar for mobile only
+/**
+ * ToolbarBottom component renders a bottom toolbar with various navigation items.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <ToolbarBottom />
+ * )
+ * 
+ * The toolbar contains the following items:
+ * - Home: Navigates to the home section.
+ * - Search: Opens the search offcanvas.
+ * - Wishlist: Links to the wishlist page and displays the number of items in the wishlist.
+ * - Cart: Opens the shopping cart modal and displays the number of items in the cart.
+ * - Account: Opens the account modal.
+ */
 export default function ToolbarBottom() {
   return (
     <div className="tf-toolbar-bottom type-1150">
+
+      {/* Home tab */}
       <div className="toolbar-item active">
         <a
           href="#toolbarShopmb"
@@ -14,9 +34,11 @@ export default function ToolbarBottom() {
           <div className="toolbar-icon">
             <i className="icon-shop" />
           </div>
-          <div className="toolbar-label">Shop</div>
+          <div className="toolbar-label">Home</div>
         </a>
       </div>
+
+      
       <div className="toolbar-item">
         <a
           href="#canvasSearch"
@@ -26,17 +48,12 @@ export default function ToolbarBottom() {
           <div className="toolbar-icon">
             <i className="icon-search" />
           </div>
-          <div className="toolbar-label">Search</div>
+          <div className="toolbar-label">Explore</div>
         </a>
       </div>
-      <div className="toolbar-item">
-        <a href="#login" data-bs-toggle="modal">
-          <div className="toolbar-icon">
-            <i className="icon-account" />
-          </div>
-          <div className="toolbar-label">Account</div>
-        </a>
-      </div>
+
+      
+
       <div className="toolbar-item">
         <Link href={`/wishlist`}>
           <div className="toolbar-icon">
@@ -45,20 +62,31 @@ export default function ToolbarBottom() {
               <WishlistLength />
             </div>
           </div>
-          <div className="toolbar-label">Wishlist</div>
+          <div className="toolbar-label">Favourite</div>
         </Link>
       </div>
+      
       <div className="toolbar-item">
         <a href="#shoppingCart" data-bs-toggle="modal">
           <div className="toolbar-icon">
-            <i className="icon-bag" />
+            <i className="icon-customer" />
             <div className="toolbar-count">
               <CartLength />
             </div>
           </div>
-          <div className="toolbar-label">Cart</div>
+          <div className="toolbar-label">Matches</div>
         </a>
       </div>
+
+      <div className="toolbar-item">
+        <a href="#login" data-bs-toggle="modal">
+          <div className="toolbar-icon">
+            <i className="icon-account" />
+          </div>
+          <div className="toolbar-label">Account</div>
+        </a>
+      </div>
+
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function page() {
                   <div className="box-left">
                     <a href="index.html">
                       <img
-                        src="images/logo/logo.svg"
+                        src="images/logo/RRM-logo.png"
                         alt="logo"
                         className="logo"
                       />

@@ -9,20 +9,22 @@ import Brands from "@/components/homes/home-1/Brands";
 import Categories from "@/components/homes/home-1/Categories";
 
 import Hero from "@/components/homes/home-1/Hero";
+import HeroBanner from "@/components/homes/home-1/Hero-banner";
 import Lookbook from "@/components/homes/home-1/Lookbook";
 import Marquee from "@/components/homes/home-1/Marquee";
 import Products from "@/components/homes/home-1/Products";
 
 export const metadata = {
-  title: "Home 1 || Ecomus - Ultimate Nextjs Ecommerce Template",
-  description: "Ecomus - Ultimate Nextjs Ecommerce Template",
+  title: "Rawa Rajput Martimony - Home",
+  description: "Rawa Rajput Martimony - Home",
 };
+
 export default function Home() {
   return (
     <>
       <Topbar1 />
       <Header1 />
-      <Hero />
+      <HeroBanner />
       <Marquee />
       <Categories />
       <Products />

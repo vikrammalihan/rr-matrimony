@@ -3,11 +3,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { tfLoopItems } from "@/data/products";
+
 export default function SearchModal() {
   return (
+    // Search modal
     <div className="offcanvas offcanvas-end canvas-search" id="canvasSearch">
       <div className="canvas-wrapper">
+        
         <header className="tf-search-head">
+         
           <div className="title fw-5">
             Search our site
             <div className="close">
@@ -18,6 +22,7 @@ export default function SearchModal() {
               />
             </div>
           </div>
+
           <div className="tf-search-sticky">
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -35,12 +40,15 @@ export default function SearchModal() {
                   required
                 />
               </fieldset>
+
               <button className="" type="submit">
                 <i className="icon-search" />
               </button>
+              
             </form>
           </div>
         </header>
+
         <div className="canvas-body p-0">
           <div className="tf-search-content">
             <div className="tf-cart-hide-has-results">
@@ -110,6 +118,7 @@ export default function SearchModal() {
                     </div>
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
