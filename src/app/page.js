@@ -1,18 +1,50 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import SplashScreen from "@components/mobile/SplashScreen";
+import WelcomeSlides from "@components/mobile/WelcomeSlides";
+
 import Image from "next/image";
 
+// default landing page of the app
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const router = useRouter();
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+  const [showSlides, setShowSlides] = useState(false);
+
+  // Check for screen size
+  useEffect(() => {
+      const checkScreenSize = () => {
+          setIsMobile(window.innerWidth < 768); // Mobile view for <768px
+      };
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+
+      return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const handleSplashFinish = () => {
+      setShowSplash(false);
+      setShowSlides(true);
+  };
+
+  const handleSlidesFinish = () => {
+      setShowSlides(false);
+  };
+
+  
+
   return (
+
     <>
-    <div>
-      <h1>Next.js Image Component</h1>
-      <Image
-        src="https://res.cloudinary.com/dg3gyk0gu/image/upload/v1633328886/nextjs-image-component/nextjs-image-component.png"
-        alt="Next.js Image Component"
-        width={500}
-        height={500}
-      />  
-      </div>
+    {isMobile && showSplash && <SplashScreen onFinish={handleSplashFinish} />}
+    {isMobile && showSlides && <WelcomeSlides onFinish={handleSlidesFinish} />}
+      
     </>
   );
-    
+
 }

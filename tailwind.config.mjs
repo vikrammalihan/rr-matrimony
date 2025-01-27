@@ -10,6 +10,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        yellow: {
+          600: '#FFC107', // Customize to match your brand's gold/yellow color
+        },
       },
     },
   },
