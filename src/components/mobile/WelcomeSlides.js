@@ -10,17 +10,17 @@ export default function WelcomeSlides({ onFinish }) {
 
     const slides = [
         {
-            image: "/images/slide1.png",
+            image: "/icons/rrm-logo.png",
             title: "Welcome to Rawa Rajput Matrimony",
             description: "Connecting Rawa Rajput families with tradition and trust. Your journey to find the perfect life partner begins here.",
         },
         {
-            image: "/images/slide2.png",
+            image: "/icons/rrm-logo.png",
             title: "Matches Within Rawa Rajput Families",
             description: "Explore profiles from Rawa Rajput families, designed to align with your preferences and values.",
         },
         {
-            image: "/images/slide3.png",
+            image: "/icons/rrm-logo.png",
             title: "Tradition Meets Technology",
             description: "With advanced matchmaking and secure communication, we ensure a seamless experience rooted in Rawa Rajput values.",
         },
@@ -30,7 +30,8 @@ export default function WelcomeSlides({ onFinish }) {
         if (currentSlide < slides.length - 1) {
             setCurrentSlide(currentSlide + 1);
         } else {
-            router.push("/index"); // Redirect to the home page
+            onFinish();
+            // router.push("/index"); // Redirect to the home page
         }
     };
 

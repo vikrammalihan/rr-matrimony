@@ -9,10 +9,9 @@ const nextConfig = withPWA({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
-  disable: false,
   runtimeCaching: [
     {
-      urlPattern: /^https:\/\/quotation-app-orcin\.vercel\.app\/.*$/,
+      urlPattern: /^https:\/\/rr-matrimony-orcin\.vercel\.app\/.*$/,
       handler: "CacheFirst",
       options: {
         cacheName: "pages-cache",
@@ -25,52 +24,15 @@ const nextConfig = withPWA({
         },
       },
     },
-    {
-      urlPattern: /\.(?:js|css|html|json)$/,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "static-resources",
-        expiration: {
-          maxEntries: 100,
-        },
-      },
-    },
-    {
-      urlPattern: /\.(?:png|jpg|jpeg|svg|gif|ico)$/,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "image-cache",
-        expiration: {
-          maxEntries: 100,
-          maxAgeSeconds: 60 * 60 * 24 * 7, // Cache for 1 week
-        },
-      },
-    },
+    
   ],
 })({
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-      },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'http', hostname: 'localhost' },
+      { protocol: 'https', hostname: 'placehold.co' },
     ],
   },
   
