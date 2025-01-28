@@ -123,7 +123,7 @@ export default function RightPopupMenu() {
                 <li className="flex items-center">
                   <div className="w-16 h-16 rounded overflow-hidden mr-4">
                     <Image
-                      src="/images/couples/1.jpg"
+                      src="/assets/couples/1.jpg"
                       alt="News"
                       loading="lazy"
                       width={64}
@@ -140,7 +140,7 @@ export default function RightPopupMenu() {
                 <li className="flex items-center">
                   <div className="w-16 h-16 rounded overflow-hidden mr-4">
                     <Image
-                      src="/images/couples/3.jpg"
+                      src="/assets/couples/3.jpg"
                       alt="News"
                       loading="lazy"
                       width={64}

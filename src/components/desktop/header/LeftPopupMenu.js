@@ -31,7 +31,7 @@ export default function LeftPopupMenu() {
             {/* Logo */}
             <div className="mb-4">
               <Image
-                src="/images/logo-b.png"
+                src="/assets/logo-b.png"
                 alt="Brand Logo"
                 loading="lazy"
                 width={150}

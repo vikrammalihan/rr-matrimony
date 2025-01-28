@@ -20,6 +20,13 @@ export default function Home() {
     setIsMobile(typeof window !== "undefined" && window.innerWidth < 768);
   }, []);
 
+  // Redirect to dashboard on desktop
+  useEffect(() => {
+    if (isClient && !isMobile) {
+      router.replace("/dashboard");
+    }
+  }, [isClient, isMobile, router]);
+
   const handleSplashFinish = () => {
     setShowSplash(false);
     setShowSlides(true);
@@ -27,7 +34,7 @@ export default function Home() {
 
   const handleSlidesFinish = () => {
     setShowSlides(false);
-    router.replace("/dashboard");
+    //router.replace("/dashboard");
   };
 
   if (!isClient) return null; // Prevents SSR-related errors
@@ -39,9 +46,7 @@ export default function Home() {
     if (showSlides) {
       return <WelcomeSlides onFinish={handleSlidesFinish} />;
     }
-  } else {
-    router.replace("/dashboard");
-  }
+  } 
 
 
   return <div className="flex justify-center items-center h-screen text-lg">Loading...</div>;

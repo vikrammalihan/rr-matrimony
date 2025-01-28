@@ -9,6 +9,7 @@ const nextConfig = withPWA({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
+  
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/rr-matrimony-orcin\.vercel\.app\/.*$/,
@@ -28,6 +29,11 @@ const nextConfig = withPWA({
   ],
 })({
   reactStrictMode: true,
+  experimental: {
+    turbo: {
+      enabled: false, // Correct way to disable Turbopack
+    },
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com' },

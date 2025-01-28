@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import LeftPopupMenu from '@components/desktop/header/LeftPopupMenu';
 import RightPopupMenu from '@components/desktop/header/RightPopupMenu';
-import MobileMenu from "@components/mobile/header/MobileMenu";
 
 export default function DesktopHeader() {
     return (
@@ -16,7 +15,7 @@ export default function DesktopHeader() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
                     <Image
-                        src="/icons/RRM-logo2.png"
+                        src="/icons/rrm-logo.png"
                         alt="Logo"
                         width={150}
                         height={50}

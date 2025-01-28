@@ -30,10 +30,10 @@ export default function DesktopFooter() {
                     <div className="w-full md:w-1/3 fot-soc">
                         <h4 className="text-lg font-semibold mb-2">SOCIAL MEDIA</h4>
                         <ul className="flex space-x-4">
-                            <li><a href="#!"><Image src="images/social/1.png" alt="FaceBook"  width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
-                            <li><a href="#!"><Image src="images/social/2.png" alt="Instagram" width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
-                            <li><a href="#!"><Image src="images/social/3.png" alt="YouTube" width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
-                            <li><a href="#!"><Image src="images/social/5.png" alt="LinkedIn"  width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
+                            <li><a href="#!"><Image src="/assets/social/1.png" alt="FaceBook"  width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
+                            <li><a href="#!"><Image src="/assets/social/2.png" alt="Instagram" width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
+                            <li><a href="#!"><Image src="/assets/social/3.png" alt="YouTube" width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
+                            <li><a href="#!"><Image src="/assets/social/5.png" alt="LinkedIn"  width={300} height={200} loading="lazy" className="w-8 h-8" /></a></li>
                         </ul>
                     </div>
                 </div>

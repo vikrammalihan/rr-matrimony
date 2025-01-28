@@ -15,7 +15,7 @@ export default function TopMenu() {
                                 <i className="block w-6 h-1 bg-black" />
                             </span>
                             <a href="#" className="logo-brand">
-                                <Image src="/icons/RRM-logo2.png" alt="logo" loading="lazy" className="ic-logo" width={100} height={50} />
+                                <Image src="/icons/rrm-logo.png" alt="logo" loading="lazy" className="ic-logo" width={100} height={50} />
                             </a>
                         </div>
                         
