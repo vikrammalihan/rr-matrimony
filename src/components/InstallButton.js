@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const InstallButton = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
 
@@ -17,7 +17,7 @@ const InstallButton = () => {
           console.error("🚨 Service Worker registration failed:", error);
         });
     }
-    
+
     const handleBeforeInstallPrompt = (event) => {
       console.warn("🔥 beforeinstallprompt event fired!", event);
       // Prevent the default install prompt
@@ -66,6 +66,7 @@ const InstallButton = () => {
   
       // Clear the saved prompt
       setDeferredPrompt(null);
+      setIsVisible(false);
     } catch (error) {
       console.error("🚨 Error triggering install prompt:", error);
     }
