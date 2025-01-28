@@ -5,10 +5,10 @@ export default function MobileProfileMenu() {
     return (
         <>
             <div className="mob-me-all dashbord_menu">
-                <div className="mob-me-clo"><Image src="images/icon/close.svg" alt="" /></div>
+                <div className="mob-me-clo"><Image src="/images/icon/close.svg" alt="" /></div>
                 <div className="mv-bus">
                     <div className="head-pro">
-                        <Image src="images/profiles/1.jpg" alt="" loading="lazy" className="w-20 h-20 rounded-full" />
+                        <Image src="/assets/profiles/1.jpg" alt="" loading="lazy" className="w-20 h-20 rounded-full" />
                         <b className="block">user profile</b>
                         <h4 className="text-lg font-semibold">Ashley emyy</h4>
                     </div>

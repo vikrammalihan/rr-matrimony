@@ -90,7 +90,7 @@ export default function LeftPopupMenu() {
               <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
                   <Image
-                    src="/images/profiles/1.jpg"
+                    src="/assets/profiles/1.jpg"
                     alt="Support Team"
                     loading="lazy"
                     width={50}

@@ -146,7 +146,7 @@ export default function MobileMenu() {
                         <div className="flex items-center mt-2">
                             <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
                                 <Image
-                                    src="/images/profiles/1.jpg"
+                                    src="/assets/profiles/1.jpg"
                                     alt="Support"
                                     width={50}
                                     height={50}

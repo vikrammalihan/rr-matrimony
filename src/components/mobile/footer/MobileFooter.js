@@ -8,7 +8,7 @@ export default function MobileFooter() {
         <div className="fixed bottom-0 left-0 right-0 bg-[#e31818] p-3 text-white z-50 w-full">
             <div className="flex justify-around items-center">
                 {/* Home Icon */}
-                <Link href="/index">
+                <Link href="/dashboard">
                     <div className="flex flex-col items-center">
                         <FaHome size={20} className="mb-1" />
                         <p className="text-xs">Home</p>

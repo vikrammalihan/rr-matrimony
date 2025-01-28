@@ -19,7 +19,7 @@ export default function MobileHeader() {
                 </div>
 
                 {/* Logo */}
-                <Link href="/index" className="flex items-center">
+                <Link href="/dashboard" className="flex items-center">
                     <Image
                         src="/icons/rrm-logo.png"
                         alt="Logo"

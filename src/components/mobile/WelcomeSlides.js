@@ -31,7 +31,7 @@ export default function WelcomeSlides({ onFinish }) {
             setCurrentSlide(currentSlide + 1);
         } else {
             onFinish();
-            // router.push("/index"); // Redirect to the home page
+            router.push("/dashboard"); // Redirect to the home page
         }
     };
 
@@ -67,7 +67,7 @@ export default function WelcomeSlides({ onFinish }) {
             </div>
             <div className="flex justify-between">
             <button
-                onClick={() => router.push("/index")} // Redirect to the home page
+                onClick={() => router.push("/dashboard")} // Redirect to the home page
                 className="bg-[#e31818] text-white py-2 px-6 rounded m-4 self-center">
                     skip
             </button>

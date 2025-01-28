@@ -20,33 +20,13 @@ import MobileHeader from "@components/mobile/header/MobileHeader";
 export default function Dashboard() {
     const [isClient, setIsClient] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-    const [showSplash, setShowSplash] = useState(true);
-    const [showSlides, setShowSlides] = useState(false);
 
     useEffect(() => {
         setIsClient(true);
         setIsMobile(typeof window !== "undefined" && window.innerWidth < 768);
     }, []);
 
-    const handleSplashFinish = () => {
-        setShowSplash(false);
-        setShowSlides(true);
-    };
-
-    const handleSlidesFinish = () => {
-        setShowSlides(false);
-    };
-
     if (!isClient) return null; // Prevents SSR-related errors
-
-    if (isMobile) {
-        if (showSplash) {
-            return <SplashScreen onFinish={handleSplashFinish} />;
-        }
-        if (showSlides) {
-            return <WelcomeSlides onFinish={handleSlidesFinish} />;
-        }
-    }
 
     return (
         <>
