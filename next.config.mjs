@@ -5,14 +5,15 @@
 import withPWA from 'next-pwa';
 
 const nextConfig = withPWA({
-  dest: 'public',
+  dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
-  
+  //disable: process.env.NODE_ENV === "development",
+  disable: false, // Ensures PWA is enabled in all environments
+  dynamicStartUrl: true, // Ensures start URL caching works dynamically
   runtimeCaching: [
     {
-      urlPattern: /^https:\/\/rr-matrimony-orcin\.vercel\.app\/.*$/,
+      urlPattern: /^https:\/\/rr-matrimony\.vercel\.app\/.*$/,
       handler: "CacheFirst",
       options: {
         cacheName: "pages-cache",
@@ -25,7 +26,16 @@ const nextConfig = withPWA({
         },
       },
     },
-    
+    {
+      urlPattern: /^\/_next\/.*\.(js|css|json|html|ico|png|jpg|jpeg|svg|gif)$/,
+      handler: "StaleWhileRevalidate",
+      options: {
+        cacheName: "next-static-resources",
+        expiration: {
+          maxEntries: 100,
+        },
+      },
+    },
   ],
 })({
   reactStrictMode: true,

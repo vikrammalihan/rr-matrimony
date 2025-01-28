@@ -1,15 +1,15 @@
 {
-    "short_name": "Rawa Rajput Matrimony",
-    "name": "Rawa Rajput Matrimony App",
+    "short_name": "Rawa Matrimony",
+    "name": "Rawa Rajput Matrimony",
+    "description": "Rawa Rajput Matrimony App",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#e31818",
     "orientation": "portrait",
-    
     "icons": [
       {
-        "src": "/icons/android-chrome-192x192",
+        "src": "/icons/android-chrome-192x192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
@@ -18,6 +18,19 @@
         "type": "image/png",
         "sizes": "512x512"
       }
-    ]
+      
+    ],
+    "screenshots": [
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
   }
   
