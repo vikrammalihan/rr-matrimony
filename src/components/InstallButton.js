@@ -30,13 +30,8 @@ const InstallButton = () => {
     const isInstalled = window.matchMedia("(display-mode: standalone)").matches ;
 
     console.warn("📱 iOS Device:", iosDevice) ;
-    alert("📱 iOS Device:" + iosDevice);
-    alert("📱 Safari Browser:" + safariBrowser);
-    alert("📱 isInstalled:" + isInstalled);
-
+    
     if (iosDevice && !isInstalled) {
-      alert("📱 isIos:" + true + "App not installed");
-
       setIsIos(true);
       setIsSafari(safariBrowser);
       setIsVisible(true);
