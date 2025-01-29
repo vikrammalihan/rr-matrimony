@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 const InstallButton = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isVisible, setIsVisible] = useState(false); // Default hidden
+  const [isVisible, setIsVisible] = useState(false); // For Android Install Button
   const [isIos, setIsIos] = useState(false);
+  const [showBanner, setShowBanner] = useState(false); // For iOS Banner
 
   useEffect(() => {
 
@@ -23,7 +24,19 @@ const InstallButton = () => {
     const userAgent = window.navigator.userAgent.toLowerCase();
     const iosDevice = /iphone|ipad|ipod/.test(userAgent);
 
-    setIsIos(iosDevice);
+    // Check if the app is already installed
+    const isInstalled = window.navigator.standalone || localStorage.getItem("iosPwaInstalled");
+
+    if (iosDevice && !isInstalled) {
+      setIsIos(true);
+
+      // Show popup after 5 seconds (5000ms)
+      const timer = setTimeout(() => {
+        setShowBanner(true);
+      }, 5000);
+
+      return () => clearTimeout(timer); // Cleanup timeout on unmount
+    }
 
     const handleBeforeInstallPrompt = (event) => {
       console.warn("🔥 beforeinstallprompt event fired!", event);
@@ -36,8 +49,7 @@ const InstallButton = () => {
     };
 
     const handleAppInstalled = () => {
-      // Hide the button once the app is installed
-      setIsVisible(false);
+      setIsVisible(false); // Hide the button once the app is installed
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -79,28 +91,44 @@ const InstallButton = () => {
     }
   };
 
-  if (isIos) {
-    // iOS users: Show custom message
-    return (
-      <div className="fixed bottom-10 left-4 right-4 bg-gray-100 text-black p-3 rounded-md shadow-md text-center">
-        📲 To install this app on iPhone:
-        <br />
-        <strong>1. Tap the Share Button (📤) in Safari.</strong>
-        <br />
-        <strong>2. Select "Add to Home Screen".</strong>
-      </div>
-    );
-  }
+  const handleClosePopup = () => {
+    setShowBanner(false);
+    localStorage.setItem("iosPwaInstalled", "true"); // Prevent showing it again
+  };
+
+  
 
   if (!isVisible) return null;
 
   return (
-    <button
-      onClick={handleInstallClick}
-      className="fixed bottom-36 left-4 bg-gray-500 text-white font-bold px-4 py-2 rounded shadow-lg"
-    >
-      Install App
-    </button>
+    <>
+      {/* ✅ Show install button for Android */}
+      {isVisible && (
+        <button
+          onClick={handleInstallClick}
+          className="fixed bottom-36 left-4 bg-gray-500 text-white font-bold px-4 py-2 rounded shadow-lg"
+        >
+          Install App
+        </button>
+      )}
+
+      {/* ✅ Show Banner for iOS after 5 seconds */}
+      {isIos && showBanner && (
+        <div className="fixed bottom-24 left-4 right-4 bg-gray-100 text-black p-3 rounded-md shadow-md text-center">
+          📲 To install this app on iPhone:
+          <br />
+          <strong>1. Tap the Share Button (📤) in Safari.</strong>
+          <br />
+          <strong>2. Select "Add to Home Screen".</strong>
+          <button
+            className="mt-2 bg-blue-500 text-white px-4 py-1 rounded"
+            onClick={handleCloseBanner}
+          >
+            Got it!
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 
