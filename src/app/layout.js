@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/icons/android-chrome-192x192.png" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="theme-color" content="#e31818"/> 
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
