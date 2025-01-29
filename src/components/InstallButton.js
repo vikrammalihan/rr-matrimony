@@ -40,13 +40,6 @@ const InstallButton = () => {
       setIsIos(true);
       setIsSafari(safariBrowser);
       setIsVisible(true);
-
-      // Show popup after 5 seconds (5000ms)
-      const timer = setTimeout(() => {
-        setShowBanner(true);
-      }, 5000);
-
-      return () => clearTimeout(timer); // Cleanup timeout on unmount
     }
 
     const handleBeforeInstallPrompt = (event) => {
@@ -74,6 +67,13 @@ const InstallButton = () => {
 
   const handleInstallClick = async () => {
     console.warn("Install button clicked");
+
+    if (isIos) {
+      // ✅ On iOS, show the install banner instead of triggering an install prompt
+      setShowBanner(true);
+      return;
+    }
+
     if (!deferredPrompt) {
       console.error("❌ deferredPrompt is null. Cannot install.");
       return;
@@ -107,8 +107,6 @@ const InstallButton = () => {
     localStorage.setItem("iosPwaInstalled", "true"); // Prevent showing it again
   };
 
-  
-
   if (!isVisible) {
       console.warn("isVisible: False");
       return null;
@@ -128,10 +126,11 @@ const InstallButton = () => {
 
       {/* ✅ Show Banner for iOS after 5 seconds */}
       {console.warn("📱 isIos:" + isIos + " App not installed" + showBanner)}
+
       {isIos && showBanner && (
         console.warn("📱 isIos:" + true + " App not installed"),
         
-        <div className="fixed bottom-24 left-4 right-4 bg-gray-100 text-black p-3 rounded-md shadow-md text-center">
+        <div className="fixed bottom-24 left-4 right-4 bg-gray-100 text-black p-3 rounded-md shadow-md text-left">
           {isSafari ? (
             <>
               📲 **To install on iPhone (Safari only):**
@@ -142,13 +141,12 @@ const InstallButton = () => {
             </>
           ) : (
             <>
-            alert("📱 isIos:" + true + " App not installed");
               ⚠️ **Chrome does not support full installation on iPhone!**  
               Please open this page in **Safari** to install as an app.
             </>
           )}
           <button
-            className="mt-2 bg-[e31818] text-white px-4 py-1 rounded"
+            className="mt-2 bg-[#e31818] text-white px-4 py-1 rounded"
             onClick={handleCloseBanner}
           >
             Got it!
