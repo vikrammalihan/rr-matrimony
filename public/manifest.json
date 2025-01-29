@@ -4,7 +4,7 @@
     "description": "Rawa Rajput Matrimony App",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#e31818",
+    "background_color": "#ffffff",
     "theme_color": "#e31818",
     "orientation": "portrait",
     "icons": [

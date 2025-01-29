@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 
 const InstallButton = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // Default hidden
+  const [isIos, setIsIos] = useState(false);
 
   useEffect(() => {
 
@@ -18,14 +19,20 @@ const InstallButton = () => {
         });
     }
 
+    // Detect if the user is on an iOS device (iPhone/iPad)
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const iosDevice = /iphone|ipad|ipod/.test(userAgent);
+
+    setIsIos(iosDevice);
+
     const handleBeforeInstallPrompt = (event) => {
       console.warn("🔥 beforeinstallprompt event fired!", event);
-      // Prevent the default install prompt
-      event.preventDefault();
-      // Save the event to trigger it later
-      setDeferredPrompt(event);
-      // Show the install button
-      setIsVisible(true);
+      
+      event.preventDefault(); // Prevent the default install prompt
+      
+      setDeferredPrompt(event); // Save the event to trigger it later
+      
+      setIsVisible(true); // Show the install button
     };
 
     const handleAppInstalled = () => {
@@ -71,6 +78,19 @@ const InstallButton = () => {
       console.error("🚨 Error triggering install prompt:", error);
     }
   };
+
+  if (isIos) {
+    // iOS users: Show custom message
+    return (
+      <div className="fixed bottom-10 left-4 right-4 bg-gray-100 text-black p-3 rounded-md shadow-md text-center">
+        📲 To install this app on iPhone:
+        <br />
+        <strong>1. Tap the Share Button (📤) in Safari.</strong>
+        <br />
+        <strong>2. Select "Add to Home Screen".</strong>
+      </div>
+    );
+  }
 
   if (!isVisible) return null;
 
