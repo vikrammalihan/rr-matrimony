@@ -6,6 +6,7 @@ const InstallButton = () => {
   const [isVisible, setIsVisible] = useState(false); // For Android Install Button
   const [isIos, setIsIos] = useState(false);
   const [showBanner, setShowBanner] = useState(false); // For iOS Banner
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
 
@@ -23,12 +24,22 @@ const InstallButton = () => {
     // Detect if the user is on an iOS device (iPhone/iPad)
     const userAgent = window.navigator.userAgent.toLowerCase();
     const iosDevice = /iphone|ipad|ipod/.test(userAgent);
+    const safariBrowser = userAgent.includes("safari") && !userAgent.includes("chrome");
 
     // Check if the app is already installed
-    const isInstalled = window.navigator.standalone || localStorage.getItem("iosPwaInstalled");
+    const isInstalled = window.matchMedia("(display-mode: standalone)").matches ;
+
+    console.warn("📱 iOS Device:", iosDevice) ;
+    alert("📱 iOS Device:" + iosDevice);
+    alert("📱 Safari Browser:" + safariBrowser);
+    alert("📱 isInstalled:" + isInstalled);
 
     if (iosDevice && !isInstalled) {
+      alert("📱 isIos:" + true + "App not installed");
+
       setIsIos(true);
+      setIsSafari(safariBrowser);
+      setIsVisible(true);
 
       // Show popup after 5 seconds (5000ms)
       const timer = setTimeout(() => {
@@ -91,14 +102,17 @@ const InstallButton = () => {
     }
   };
 
-  const handleClosePopup = () => {
+  const handleCloseBanner = () => {
     setShowBanner(false);
     localStorage.setItem("iosPwaInstalled", "true"); // Prevent showing it again
   };
 
   
 
-  if (!isVisible) return null;
+  if (!isVisible) {
+      console.warn("isVisible: False");
+      return null;
+    }
 
   return (
     <>
@@ -113,15 +127,28 @@ const InstallButton = () => {
       )}
 
       {/* ✅ Show Banner for iOS after 5 seconds */}
+      {console.warn("📱 isIos:" + isIos + " App not installed" + showBanner)}
       {isIos && showBanner && (
+        console.warn("📱 isIos:" + true + " App not installed"),
+        
         <div className="fixed bottom-24 left-4 right-4 bg-gray-100 text-black p-3 rounded-md shadow-md text-center">
-          📲 To install this app on iPhone:
-          <br />
-          <strong>1. Tap the Share Button (📤) in Safari.</strong>
-          <br />
-          <strong>2. Select "Add to Home Screen".</strong>
+          {isSafari ? (
+            <>
+              📲 **To install on iPhone (Safari only):**
+              <br />
+              1️⃣ Tap the **Share Button (📤)**.
+              <br />
+              2️⃣ Select **"Add to Home Screen"**.
+            </>
+          ) : (
+            <>
+            alert("📱 isIos:" + true + " App not installed");
+              ⚠️ **Chrome does not support full installation on iPhone!**  
+              Please open this page in **Safari** to install as an app.
+            </>
+          )}
           <button
-            className="mt-2 bg-blue-500 text-white px-4 py-1 rounded"
+            className="mt-2 bg-[e31818] text-white px-4 py-1 rounded"
             onClick={handleCloseBanner}
           >
             Got it!
