@@ -3,20 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { IoMdNotificationsOutline } from "react-icons/io"
-import { FiSearch } from "react-icons/fi";
-
-import MobileMenu from "@components/mobile/header/MobileMenu";
-
+import { Bell } from 'lucide-react';
 
 export default function MobileHeader() {
     return (
-        <header className="bg-white shadow-md">
+        <header className="bg-[#E8E8E8] shadow-md sticky top-0 z-50">
             <div className="container mx-auto px-6 py-4 flex justify-between items-left">
-
-                <div className="">
-                    <MobileMenu />
-                </div>
 
                 {/* Logo */}
                 <Link href="/dashboard" className="flex items-center">
@@ -29,9 +21,8 @@ export default function MobileHeader() {
                 </Link>
 
                 
-                <div className="flex flex-row space-x-4 space-y-4">
-                    <FiSearch />
-                    <IoMdNotificationsOutline />
+                <div className="flex items-center">
+                <Bell />
                 </div>
 
             </div>

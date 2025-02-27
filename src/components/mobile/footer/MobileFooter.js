@@ -5,9 +5,8 @@ import Link from 'next/link';
 
 export default function MobileFooter() {
     return (
-        <div className="fixed bottom-0 left-0 right-0 bg-[#e31818] p-3 text-white z-50 w-full">
+        <div className="absolute bottom-0 left-0 w-full bg-[#e31818] p-3 text-white z-50 shadow-sm">
             <div className="flex justify-around items-center">
-                {/* Home Icon */}
                 <Link href="/dashboard">
                     <div className="flex flex-col items-center">
                         <FaHome size={20} className="mb-1" />
@@ -15,34 +14,30 @@ export default function MobileFooter() {
                     </div>
                 </Link>
 
-                {/* Quotations Icon */}
                 <Link href="/matches">
                     <div className="flex flex-col items-center">
                         <FaFileAlt size={20} className="mb-1" />
-                        <p className="text-xs">Matches</p>
+                        <p className="text-xs">Saved</p>
                     </div>
                 </Link>
 
-                {/* Add Icon */}
                 <Link href="/search">
                     <div className="bg-white rounded-full p-2 -mt-10">
                         <FiSearch size={40} className="text-[#e31818]" />
                     </div>
                 </Link>
 
-                {/* Customers Icon */}
-                <Link href="/search">
+                <Link href="/connections">
                     <div className="flex flex-col items-center">
                         <CiMail size={20} className="mb-1" />
-                        <p className="text-xs">Mail box</p>
+                        <p className="text-xs">Connections</p>
                     </div>
                 </Link>
 
-                {/* Account Icon */}
                 <Link href="/profile">
                     <div className="flex flex-col items-center">
                         <FaUser size={20} className="mb-1" />
-                        <p className="text-xs">Profile</p>
+                        <p className="text-xs">Account</p>
                     </div>
                 </Link>
             </div>
