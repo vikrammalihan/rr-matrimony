@@ -1,6 +1,5 @@
 
 import { ChevronLeft } from 'lucide-react';
-import { IoIosShareAlt } from "react-icons/io";
 
 export default function EditProfileHeader() {
     return (

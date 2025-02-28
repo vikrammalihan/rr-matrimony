@@ -9,6 +9,7 @@ const images = [
     "https://res.cloudinary.com/dnevbbzpx/image/upload/v1736919331/samples/man-portrait.jpg",
     "https://res.cloudinary.com/dnevbbzpx/image/upload/v1736919331/samples/outdoor-woman.jpg",
     "https://res.cloudinary.com/dnevbbzpx/image/upload/v1736919331/samples/chair-and-coffee-table.jpg",
+    "https://res.cloudinary.com/dnevbbzpx/image/upload/v1736919332/samples/woman-on-a-football-field.jpg",
 ];
 
 export default function ProfileSlider() {

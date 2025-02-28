@@ -11,9 +11,9 @@ import LookingforYou from "@components/dashboard/LookingforYou";
 
 export default function Dashboard() {
     return (
-        <div className="w-full h-full flex flex-col overflow-hidden relative">
+        <div className="relative w-full h-full flex flex-col  ">
             <MobileHeader />
-            <div className="flex-grow overflow-y-scroll scrollbar-hide pb-16">
+            <div className="relative flex-grow overflow-y-scroll scrollbar-hide overflow-hidden pb-16">
                 <ProfileCard />
                 <HorizontalMenu />
                 <MatchesSection />

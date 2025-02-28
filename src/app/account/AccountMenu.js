@@ -2,15 +2,15 @@ import Link from "next/link";
 import { User, Edit, Send, Eye, ThumbsUp, Users, Bookmark, Settings, Info, FileText, LogOut } from "lucide-react";
 
 const menuItems = [
-    { icon: User, label: "View Public Profile", path: "/profile/public" },
+    { icon: User, label: "View Public Profile", path: "/profile/my" },
     { icon: Edit, label: "Edit Profile", path: "/profile/edit" },
+    { icon: Send, label: "Interest Received", path: "/profile/interestedinme" },
     { icon: Send, label: "Interest Sent", path: "/profile/interestsent" },
-    { icon: Eye, label: "Contact Viewed", path: "/profile/contactviewed" },
+    { icon: Eye, label: "Contact Viewed", path: "/profile/address" },
     { icon: ThumbsUp, label: "Likes", path: "/profile/likes" },
-    { icon: Users, label: "Liked", path: "/profile/liked" },
     { icon: Eye, label: "Profile Views", path: "/profile/views" },
-    { icon: Send, label: "Interest Received", path: "/profile/interestreceived" },
-    { icon: Bookmark, label: "Shortlisted", path: "/profile/shortlisted" },
+    
+    { icon: Bookmark, label: "Shortlisted", path: "/profile/saved" },
     { icon: Settings, label: "Settings", path: "/settings" },
     { icon: Info, label: "About Us", path: "/about" },
     { icon: FileText, label: "Terms & Conditions", path: "/terms" },

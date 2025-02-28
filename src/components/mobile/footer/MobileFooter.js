@@ -17,11 +17,11 @@ export default function MobileFooter() {
                 <Link href="/matches">
                     <div className="flex flex-col items-center">
                         <FaFileAlt size={20} className="mb-1" />
-                        <p className="text-xs">Saved</p>
+                        <p className="text-xs">Matches</p>
                     </div>
                 </Link>
 
-                <Link href="/search">
+                <Link href="/profile">
                     <div className="bg-white rounded-full p-2 -mt-10">
                         <FiSearch size={40} className="text-[#e31818]" />
                     </div>
@@ -30,11 +30,11 @@ export default function MobileFooter() {
                 <Link href="/connections">
                     <div className="flex flex-col items-center">
                         <CiMail size={20} className="mb-1" />
-                        <p className="text-xs">Connections</p>
+                        <p className="text-xs">Intrest</p>
                     </div>
                 </Link>
 
-                <Link href="/profile">
+                <Link href="/account">
                     <div className="flex flex-col items-center">
                         <FaUser size={20} className="mb-1" />
                         <p className="text-xs">Account</p>

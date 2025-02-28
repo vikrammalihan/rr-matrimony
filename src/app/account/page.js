@@ -3,8 +3,8 @@
 
 import { useState } from "react";
 import ProfileSlider from "@components/profile/ProfileSlider";
-import AccountMenu from "@components/account/AccountMenu";
-import AccountHeader from "@components/account/AccountHeader";
+import AccountMenu from "@app/account/AccountMenu";
+import AccountHeader from "@app/account/AccountHeader";
 
 import MobileFooter from "@components/mobile/footer/MobileFooter";
 
